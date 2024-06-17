@@ -9,3 +9,8 @@ Bài tập lớn hệ quản trị cơ sở dữ liệu. Với ứng dụng: Qu�
   -    Quản lý nhân viên với các thuộc tính nơi làm việc, công việc xuất nhập hàng.
   -    Quản lý khách hàng mua hàng.
   -    Quản lý các sản phẩm như sách, các đồ dùng văn phòng phẩm khác.
+
+## MÔ TẢ BÀI TOÁN
+### Các chức năng
+   Quản lý cửa hàng và chủ của các cửa hàng đó: Gồm các thuộc tính tên chủ cửa hàng, tên cửa hàng, địa chỉ của cửa hàng, hotline để có thể gọi cho cửa hàng. Thêm, sửa, xoá các các cửa hàng dừng hoạt động, mở mới, và thay đổi địa chỉ.
+   

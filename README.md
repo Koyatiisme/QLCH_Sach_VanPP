@@ -12,5 +12,13 @@ Bài tập lớn hệ quản trị cơ sở dữ liệu. Với ứng dụng: Qu�
 
 ## MÔ TẢ BÀI TOÁN
 ### Các chức năng
-  Quản lý cửa hàng và chủ của các cửa hàng đó: Gồm các thuộc tính tên chủ cửa hàng, tên cửa hàng, địa chỉ của cửa hàng, hotline để có thể gọi cho cửa hàng. Thêm, sửa, xoá các các cửa hàng dừng hoạt động, mở mới, và thay đổi địa chỉ.
-   
+- Quản lý cửa hàng và chủ của các cửa hàng đó: Gồm các thuộc tính tên chủ cửa hàng, tên cửa hàng, địa chỉ của cửa hàng, hotline để có thể gọi cho cửa hàng. Thêm, sửa, xoá các các cửa hàng dừng hoạt động, mở mới, và thay đổi địa chỉ.
+- Quản lý khách hàng: Có thể thêm các khách hàng, sửa khách hàng lưu trữ liên lạc bằng số điện thoại.
+- Quản lý xuẩt/ nhập khẩu hàng hoá.
+- Chức năng quản lý hàng hoá: Liệt kê các hàng hoá, thêm hàng hoá, sửa thông tin hàng hoá
+- Chức năng quản lý bán hàng: Thêm hoá đơn, sửa chữa hoá đơn, xoá hoá đơn, xuất hoá đơn.
+- Báo cáo lượng hàng còn lại
+- Báo cáo hàng bán chạy
+
+## CÁC BẢNG CỦA HỆ THỐNG ĐƯỢC LẬP
+

@@ -22,4 +22,12 @@ Bài tập lớn hệ quản trị cơ sở dữ liệu. Với ứng dụng: Qu�
 - Báo cáo hàng bán chạy
 
 ## CÁC BẢNG CỦA HỆ THỐNG ĐƯỢC LẬP
-1. Bảng thông tin về chủ cửa hàng
+1. ChuCH(#TenChu, DiaChi)
+   - TenChu là khoá chính đề xác định được bảng của chủ cửa hàng. Kiểu dữ liệu nvarchar(50).
+   - Dia chi là tên trường có kiểu dữ liệu nvarchar(50).
+2. Chu_SDT(#SDT, @TenCHu)
+   - SDT là khoá chính trong bảng xác định được bảo này, kiểu dữ liệu int, sử dụng CK kiểm tra xem có là 10 trong khoảng từ 0 đến 10.
+   - TenChu là khoá ngoại nhưng not null dùng để liên kết với bảng ChuCH. Kiểu dữ liệu nvarchar(50).
+3. CuaHang(#TenCH, DiaChi)
+   - TenCH là khoá chính xác định được cửa hàng là gì. Kiểu dữ liệu nvarchar(50).
+   - Thuộc tính DiaChi phụ thuộc hàm đầy đủ vào khoá, có kiểu dữ liệu nvarchar(50).

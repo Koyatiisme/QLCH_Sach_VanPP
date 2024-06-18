@@ -22,4 +22,4 @@ Bài tập lớn hệ quản trị cơ sở dữ liệu. Với ứng dụng: Qu�
 - Báo cáo hàng bán chạy
 
 ## CÁC BẢNG CỦA HỆ THỐNG ĐƯỢC LẬP
-
+1. Bảng thông tin về chủ cửa hàng

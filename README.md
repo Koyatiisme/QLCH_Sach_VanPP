@@ -55,7 +55,7 @@ Bài tập lớn hệ quản trị cơ sở dữ liệu. Với ứng dụng: Qu�
 
 ## CÁC CHỨC NĂNG
 1. Liệt kê tên chi nhánh tại Thái Nguyen, tên nhà cung cấp được nhập hang từ nhân viên giới tính nam nhập nhiều lần và số lần nhâp.
-   '''SQLselect ChiNhanh.TenChiNhanh, NhaCungCap.TenCC, A.SoLan
+   '''select ChiNhanh.TenChiNhanh, NhaCungCap.TenCC, A.SoLan
 from ChiNhanh, NhaCungCap, (select NhapHang.TenChiNhanh, NhapHang.MaCC, COUNT(MaHH) as SoLan
 							from NhapHang, ChiNhanh, NhanVien
 							where ChiNhanh.DiaChi like "* - Thái Nguyên"
@@ -78,3 +78,4 @@ where A.SoLan = B.Max
 and A.MaCC = ChiNhanh.MaCC
 and A.TenChiNhanh = ChiNhanh.TenChiNhanh
 and	ChiNhanh.MaCC = NhaCungCap.MaCC
+'''

@@ -31,3 +31,50 @@ Bài tập lớn hệ quản trị cơ sở dữ liệu. Với ứng dụng: Qu�
 3. CuaHang(#TenCH, DiaChi)
    - TenCH là khoá chính xác định được cửa hàng là gì. Kiểu dữ liệu nvarchar(50).
    - Thuộc tính DiaChi phụ thuộc hàm đầy đủ vào khoá, có kiểu dữ liệu nvarchar(50).
+4. CuaHang_Hotline (@TenCH, #SDT)
+-	SDT là khoá chính, thuộc tính TenCH phụ thuộc hàm dầy đủ vào SDT.
+-	TenCH kiểu dữ liệu nvarchar(50), SDT kiểu int cả hai đều not null
+5. ChoLam (#MaNV, @TenCH, @TenChu)
+- MaNV là khoá chính, thuộc tính TenCH, TenChu phụ thuộc hàm đầy đủ vào MaNV.
+- Các thuộc tính đều là kiểu dữ liệu nvarchar(50).
+6. NhanVien(#MaNV, TenNV, DiaChi, Tuoi, GioiTinh)
+7. NhanVien_SDT(#MaNV, SDT)
+8. BanHang(#MaNV, @MaKH, @MaHH, @MaHDB, SoLuong)
+9. HoaDonBan(#MaHDB, NgayBan)
+10. KhachHang(#MaKH, TenKH, DiaChi, GioiTinh, Tuoi)
+11. KhachHang_Phone (#MaKH, @SDT)
+12. HangHoa (#MaHH, TenHH, SoLuong, GiaThanh, Loai)
+13. Sach (#MaSach, TacGia, TheLoai)
+14. Sach_TB(#MaSach, TaiBan)
+14. Sach_TB(#MaSach, TaiBan)
+15. NhaCungCap(#MaCC, TenCC, DiaChi)
+16. NhaCC_Hotline(#SDT, @MaCC)
+17. ChiNhanh(#TenChiNhanh, @MaCC, DiaChi)
+18. NhapHang(#MaNH, MaHH, MaNV, MaCC, TenChiNhanh, MaHDN, SoLuong)
+19. HoaDonNhap(#MaHDN, NgayNhap)
+
+## CÁC CHỨC NĂNG
+1. Liệt kê tên chi nhánh tại Thái Nguyen, tên nhà cung cấp được nhập hang từ nhân viên giới tính nam nhập nhiều lần và số lần nhâp.
+   '''SQLselect ChiNhanh.TenChiNhanh, NhaCungCap.TenCC, A.SoLan
+from ChiNhanh, NhaCungCap, (select NhapHang.TenChiNhanh, NhapHang.MaCC, COUNT(MaHH) as SoLan
+							from NhapHang, ChiNhanh, NhanVien
+							where ChiNhanh.DiaChi like "* - Thái Nguyên"
+							and NhapHang.TenChiNhanh = ChiNhanh.TenChiNhanh
+							and NhapHang.MaCC = ChiNhanh.MaCC
+							and	NhapHang.MaNV = NhanVien.MaNV
+							and GioiTinh like "Nam"
+							group by NhapHang.TenChiNhanh, NhapHang.MaCC) as A,
+							(select MAX(SoLan) as Max
+							 from (select NhapHang.TenChiNhanh, NhapHang.MaCC, COUNT(MaNH) as SoLan
+									from NhapHang, ChiNhanh, NhanVien
+									where ChiNhanh.DiaChi like "* - Thai Nguyên"
+									and NhapHang.TenChiNhanh = ChiNhanh.TenChiNhanh
+									and NhapHang.MaCC = ChiNhanh.MaCC
+									and	NhapHang.MaNV = NhanVien.MaNV
+									and GioiTinh like "Nam"
+									group by NhapHang.TenChiNhanh, NhapHang.MaCC) as A
+							) as B
+where A.SoLan = B.Max
+and A.MaCC = ChiNhanh.MaCC
+and A.TenChiNhanh = ChiNhanh.TenChiNhanh
+and	ChiNhanh.MaCC = NhaCungCap.MaCC

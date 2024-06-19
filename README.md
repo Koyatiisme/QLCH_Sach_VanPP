@@ -55,27 +55,8 @@ Bài tập lớn hệ quản trị cơ sở dữ liệu. Với ứng dụng: Qu�
 
 ## CÁC CHỨC NĂNG
 1. Liệt kê tên chi nhánh tại Thái Nguyen, tên nhà cung cấp được nhập hang từ nhân viên giới tính nam nhập nhiều lần và số lần nhâp.
-   '''select ChiNhanh.TenChiNhanh, NhaCungCap.TenCC, A.SoLan
-from ChiNhanh, NhaCungCap, (select NhapHang.TenChiNhanh, NhapHang.MaCC, COUNT(MaHH) as SoLan
-							from NhapHang, ChiNhanh, NhanVien
-							where ChiNhanh.DiaChi like "* - Thái Nguyên"
-							and NhapHang.TenChiNhanh = ChiNhanh.TenChiNhanh
-							and NhapHang.MaCC = ChiNhanh.MaCC
-							and	NhapHang.MaNV = NhanVien.MaNV
-							and GioiTinh like "Nam"
-							group by NhapHang.TenChiNhanh, NhapHang.MaCC) as A,
-							(select MAX(SoLan) as Max
-							 from (select NhapHang.TenChiNhanh, NhapHang.MaCC, COUNT(MaNH) as SoLan
-									from NhapHang, ChiNhanh, NhanVien
-									where ChiNhanh.DiaChi like "* - Thai Nguyên"
-									and NhapHang.TenChiNhanh = ChiNhanh.TenChiNhanh
-									and NhapHang.MaCC = ChiNhanh.MaCC
-									and	NhapHang.MaNV = NhanVien.MaNV
-									and GioiTinh like "Nam"
-									group by NhapHang.TenChiNhanh, NhapHang.MaCC) as A
-							) as B
-where A.SoLan = B.Max
-and A.MaCC = ChiNhanh.MaCC
-and A.TenChiNhanh = ChiNhanh.TenChiNhanh
-and	ChiNhanh.MaCC = NhaCungCap.MaCC
-'''
+2. Liệt kê mã, tên, số lượng hàng của khách hàng có địa chỉ Thái Nguyên, mua hàng với số lượng nhiều nhất năm 2024
+3. Liệt kê mã nhân viên và số lần bán hàng của nhưng nhân viên sử dụng số điện thoại đầu 09 bán hàng cho khách hàng đầu 09
+4. Tạo Fn
+5. SP
+
